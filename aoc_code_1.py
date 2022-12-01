@@ -1,16 +1,21 @@
 from general_functions import read_data
 
 day = 1
-data = read_data(day, test=True)
-data = [int(x) for x in data]
+data = read_data(day, test=False)
 
+total_list = []
+val = 0
 
-# part 1
-def count_up(data):
-    return sum(i < j for i, j in zip(data[:-1], data[1:]))
+for item in data:
+    if item == '':
+        total_list.append(val)
+        val = 0
+    else:
+        val = val + int(item)
 
+# day1 A
+print(max(total_list))
 
-print(count_up(data))
-
-# part 2
-print(count_up([sum(data[i - 3:i]) for (i, x) in enumerate(data) if i < len(data) and i >= 2]))
+# day1 B
+total_list.sort(reverse=True)
+print(sum(total_list[:3]))
