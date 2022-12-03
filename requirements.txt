@@ -6,4 +6,6 @@ collections
 seaborn
 matplotlib
 scipy
+itertools
+
 
